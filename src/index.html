@@ -5,6 +5,34 @@
     <title>Web Speech Learning</title>
 </head>
 <body>
-<p>Alexandre P ; Jules H</p>
+    <nav>
+        <ul>
+            <il>Deioos</il>
+            <il>Kyziow</il>
+        </ul>
+    </nav>
+    <p id="isSupported"> Speech Syntesis </p>
+    <h1>Web Speech Learning</h1>
+    <div class="option">
+        <label for="voice">Voice</label>
+        <select name="voice" id="voice"></select>
+        </div>
+        <div class="option">
+        <label for="volume">Volume</label>
+        <input type="range" min="0" max="1" step="0.1" name="volume" id="volume" value="1">
+        </div>
+        <div class="option">
+        <label for="rate">Rate</label>
+        <input type="range" min="0.1" max="10" step="0.1" name="rate" id="rate" value="1">
+        </div>
+        <div class="option">
+        <label for="pitch">Pitch</label>
+        <input type="range" min="0" max="2" step="0.1" name="pitch" id="pitch" value="1">
+        </div>
+        <div class="phrase">
+        <label for="phrase">Phrase</label>
+        <textarea name="phrase" id="phrase" cols="30" rows="1"></textarea>
+        </div>
+        <button id="speak">Speak</button>
 </body>
 </html>
