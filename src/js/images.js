@@ -20,13 +20,13 @@ export const getImagesVoitures = () => {
 
 export const getImagesAnimaux = () => {
     return [
-        getImage("animaux", "renault"),
-        getImage("animaux", "peugeot"),
-        getImage("animaux", "citroen"),
-        getImage("animaux", "audi"),
-        getImage("animaux", "volvo"),
-        getImage("animaux", "dacia"),
-        getImage("animaux", "bmw"),
-        getImage("animaux", "volkswagen"),
+        getImage("animaux", "chat"),
+        getImage("animaux", "chien"),
+        getImage("animaux", "crocodile"),
+        getImage("animaux", "elephant"),
+        getImage("animaux", "girafe"),
+        getImage("animaux", "hibou"),
+        getImage("animaux", "koala"),
+        getImage("animaux", "panda"),
     ]
 }
