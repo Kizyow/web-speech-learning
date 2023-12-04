@@ -1,19 +1,32 @@
-export const getImage = (name) => {
+export const getImage = (categorie, name) => {
     const img = new Image();
-    img.src = `../images/${name}.png`;
+    img.src = `../images/${categorie}/${name}.png`;
     img.alt = `${name}`;
     return img;
 }
 
 export const getImagesVoitures = () => {
     return [
-        getImage("renault"),
-        getImage("peugeot"),
-        getImage("citroen"),
-        getImage("audi"),
-        getImage("volvo"),
-        getImage("dacia"),
-        getImage("bmw"),
-        getImage("volkswagen"),
+        getImage("voitures", "renault"),
+        getImage("voitures", "peugeot"),
+        getImage("voitures", "citroen"),
+        getImage("voitures", "audi"),
+        getImage("voitures", "volvo"),
+        getImage("voitures", "dacia"),
+        getImage("voitures", "bmw"),
+        getImage("voitures", "volkswagen"),
+    ]
+}
+
+export const getImagesAnimaux = () => {
+    return [
+        getImage("animaux", "renault"),
+        getImage("animaux", "peugeot"),
+        getImage("animaux", "citroen"),
+        getImage("animaux", "audi"),
+        getImage("animaux", "volvo"),
+        getImage("animaux", "dacia"),
+        getImage("animaux", "bmw"),
+        getImage("animaux", "volkswagen"),
     ]
 }
