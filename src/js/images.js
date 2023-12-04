@@ -30,3 +30,4 @@ export const getImagesAnimaux = () => {
         getImage("animaux", "panda"),
     ]
 }
+

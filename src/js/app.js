@@ -1,4 +1,5 @@
-import app from "./SpeechRecognition.js";
+import {speak, main } from "./SpeechRecognition.js";
+import {getImagesVoitures, getImagesAnimaux} from "./images.js";
 
 console.log("loading app.js");
 
@@ -7,7 +8,21 @@ if ("speechSynthesis" in window) {
   console.log("speechSynthesis supported");
   document.getElementById("isSupported").innerHTML =
     "speechSynthesis supported";
-  app();
+  
+  main();
+  
+  let divImages =  document.getElementById('reco');
+  let images = getImagesVoitures();
+  images.forEach(image => {
+    divImages.appendChild(image);
+
+    image.addEventListener("click", function (e) {
+      console.log("img clicked")
+      speak(image.alt);
+    });
+  });
+
+  //
 } else {
   alert("speechSynthesis not supported, try another browser");
   document.getElementById("isSupported").innerHTML =
