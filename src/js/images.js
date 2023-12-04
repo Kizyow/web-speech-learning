@@ -1,5 +1,8 @@
 export const getImage = (name) => {
-    return {src: `../images/${name}.png`, alt: `${name}`};
+    const img = new Image();
+    img.src = `../images/${name}.png`;
+    img.alt = `${name}`;
+    return img;
 }
 
 export const getImagesVoitures = () => {
