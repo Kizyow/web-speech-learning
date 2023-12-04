@@ -1,69 +1,52 @@
-export class SpeechRecognition {
-  constructor(text) {
-    let utterrance = new SpeechSynthesisUtterance(text);
+export default () => {
+  var button = document.getElementById("speak");
+  var speechMsgInput = document.getElementById("phrase");
+  var voiceSelect = document.getElementById("voice");
+  // Get the attribute controls.
+  var volumeInput = document.getElementById("volume");
+  var rateInput = document.getElementById("rate");
+  var pitchInput = document.getElementById("pitch");
+
+  function loadVoices() {
+    console.log("loading voices");
+    var voices = window.speechSynthesis.getVoices();
+    // parcourir la liste des voix.
+    voices.forEach(function (voice, i) {
+      console.log(voice.name);
+      var option = document.createElement("option");
+      option.value = voice.name;
+      option.innerHTML = voice.name;
+      // Add the option to the voice selector.
+      voiceSelect.appendChild(option);
+    });
   }
 
-  speak = function () {
-    window.speechSynthesis.speak(utterrance);
+  loadVoices();
+
+  window.speechSynthesis.onvoiceschanged = function (e) {
+    loadVoices();
   };
 
-  setText = function (text) {
-    utterrance.text = text;
-  };
-
-  setLanguage = function (language) {
-    utterrance.lang = language;
-  };
-
-  setVolume = function (volume) {
-    uttrance.volume = volume;
-  };
-
-  setRate = function (rate) {
-    utterrance.rate = rate;
-  };
-
-  setPitch = function (pitch) {
-    utterrance.pitch = pitch;
-  };
-
-  getVoices = function () {
-    function loadVoices() {
-      // parcourir la liste des voix.
-      voices.forEach(function (voice, i) {
-        var option = document.createElement("option");
-        option.value = voice.name;
-        option.innerHTML = voice.name;
-        // Add the option to the voice selector.
-        voiceSelect.appendChild(option);
-      });
+  function speak(text) {
+    var msg = new SpeechSynthesisUtterance();
+    msg.text = text;
+    // Set les attributs
+    msg.volume = parseFloat(volumeInput.value);
+    msg.rate = parseFloat(rateInput.value);
+    msg.pitch = parseFloat(pitchInput.value);
+    // Si une voix a été sélectionnée, faire les modifications nécessaires.
+    if (voiceSelect.value) {
+      msg.voice = speechSynthesis.getVoices().filter(function (voice) {
+        return voice.name == voiceSelect.value;
+      })[0];
     }
-  };
+    // Ajouter ce texte (parole) à la liste de synthèse.
+    window.speechSynthesis.speak(msg);
+    console.log("speak: " + text);
+  }
 
-  init = function () {
-    // elements
-    let button = document.getElementById("speak");
-    let speechMsgInput = document.getElementById("speech-msg");
-    let voiceSelect = document.getElementById("voice");
-    // Get the attribute controls.
-    let volumeInput = document.getElementById("volume");
-    let rateInput = document.getElementById("rate");
-    let pitchInput = document.getElementById("pitch");
-    let phrase  = document.getElementById("phrase");
-
-    // add event listeners
-    button.addEventListener("click", speak);
-    speechMsgInput.addEventListener("change", changeTextHandler);
-    voiceSelect.addEventListener("change", changeVoiceHandler);
-    volumeInput.addEventListener("change", changeVolumeHandler);
-    rateInput.addEventListener("change", changeRateHandler);
-    pitchInput.addEventListener("change", changePitchHandler);
-
-    speak.addEventListener("click", speak => {
-        let text = phrase.value;
-        this.setText(text);
-        this.speak();
-    });
-
-  };
-}
+  button.addEventListener("click", function (e) {
+    console.log("firing event")
+    speak(speechMsgInput.value);
+  });
+};
