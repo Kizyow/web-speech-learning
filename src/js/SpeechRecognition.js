@@ -36,13 +36,7 @@ export function main() {
 
     loadVoices();
 
-    let modeStates =  ["Learn", "Play"]
-    let mode = document.getElementById("currentMod");
-    
-    let switchModeBtn = document.getElementById("modeButton");
-    switchModeBtn.addEventListener("click", function (e) {
-        if 
-    })
+   
     window.speechSynthesis.onvoiceschanged = function (e) {
         loadVoices();
     };
