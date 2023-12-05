@@ -2,10 +2,14 @@ export const speak = (text) => {
     const msg = new SpeechSynthesisUtterance();
     const voiceSelect = document.getElementById("voice");
 
+    // Get the attribute controls.
+    let volumeInput = document.getElementById('volume');
+    let rateInput = document.getElementById('rate');
+    let pitchInput = document.getElementById('pitch');
     msg.text = text;
-    msg.volume = 1.0;
-    msg.rate = 1.0;
-    msg.pitch = 1.0;
+    msg.volume = parseFloat(volumeInput.value);
+    msg.rate = parseFloat(rateInput.value);
+    msg.pitch = parseFloat(pitchInput.value);
 
     if (voiceSelect.value) {
         msg.voice = speechSynthesis.getVoices().filter(function (voice) {
@@ -32,6 +36,13 @@ export function main() {
 
     loadVoices();
 
+    let modeStates =  ["Learn", "Play"]
+    let mode = document.getElementById("currentMod");
+    
+    let switchModeBtn = document.getElementById("modeButton");
+    switchModeBtn.addEventListener("click", function (e) {
+        if 
+    })
     window.speechSynthesis.onvoiceschanged = function (e) {
         loadVoices();
     };

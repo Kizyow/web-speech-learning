@@ -2,21 +2,8 @@ import {main, speak} from "./SpeechRecognition.js";
 import {getImagesVoitures, getImagesAnimaux} from "./images.js";
 
 const  loadImages = (category) => {
-    let divImages = document.getElementById('reco');
-    divImages.innerHTML = "";
-    const shuffledImages = category.sort((a, b) => 0.5 - Math.random());
-    shuffledImages.forEach(image => {
-        image.classList.add("grid-item");
-        divImages.appendChild(image);
+  let currentMode = document.getElementById("currentMode").innerHTML;
 
-        image.addEventListener("click", function (e) {
-            speak(image.alt);
-        });
-    });
-}
-
-
-const  loadImages = (category) => {
   let divImages = document.getElementById('reco');
   divImages.innerHTML = "";
   const shuffledImages = category.sort((a, b) => 0.5 - Math.random());
