@@ -22,11 +22,24 @@
     animation: fadeInOut 1s ease forwards;
 }
 
+.fail {
+    border: 2px solid red;
+}
+
+.success {
+    border: 2px solid lime;
+}
+
 .grid-item img {
     width: 100%;
     height: auto;
     display: block;
 }
+
+.grid-item:hover {
+    transform: scale(1.1);
+}
+
 
 body {
     font-family: Arial, sans-serif;

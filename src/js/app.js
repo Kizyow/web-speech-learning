@@ -29,11 +29,16 @@ const targetCard = (images) => {
         if (e.target === randomImage) {
             let congrats = currentLang === "fr-FR" ? "Bravo" : "Congrats";
             speak(congrats);
+            e.target.classList.add("success")
             for (let image of images) {
                 image.removeEventListener("click", clickListener);
+                setTimeout(() => {
+                    image.classList.remove("fail", "success");
+                }, 2000);
             }
         } else {
             let tryagain = currentLang === "fr-FR" ? "Essaie encore" : "Try again";
+            e.target.classList.add("fail")
             speak(tryagain);
         }
     };
