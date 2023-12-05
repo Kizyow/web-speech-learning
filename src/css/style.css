@@ -1,0 +1,19 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: 300px;
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #000;
+    box-sizing: border-box;
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
