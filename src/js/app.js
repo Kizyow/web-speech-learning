@@ -32,8 +32,6 @@ if ("speechSynthesis" in window) {
         loadImages(getImagesVoitures());
     });
 
-
-
 } else {
     alert("speechSynthesis not supported, try another browser");
     document.getElementById("isSupported").innerHTML = "speechSynthesis not supported";

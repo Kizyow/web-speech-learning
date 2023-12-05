@@ -22,20 +22,37 @@
     <div class="option">
         <label for="voice">Voice</label>
         <select name="voice" id="voice"></select>
-    </div>
 
-    <h1> Reconnaissance </h1>
+        </div>
+        <div class="option">
+        <label for="volume">Volume</label>
+        <input type="range" min="0" max="1" step="0.1" name="volume" id="volume" value="1">
+        </div>
+        <div class="option">
+        <label for="rate">Rate</label>
+        <input type="range" min="0.1" max="10" step="0.1" name="rate" id="rate" value="1">
+        </div>
+        <div class="option">
+        <label for="pitch">Pitch</label>
+        <input type="range" min="0" max="2" step="0.1" name="pitch" id="pitch" value="1">
+        </div>
+        <div class="phrase">
+        <label for="phrase">Phrase</label>
+        <textarea name="phrase" id="phrase" cols="30" rows="1"></textarea>
+        </div>
+        <button id="speak">Speak</button>
+        
+        <h1 id="currentMode"> Learn </h1>
+        <button id="modeButton"> switch mode</button>
+        <button id="play" disabled="true">play </button>
 
-    <div id="cate">
-        <button id="animaux">Animaux</button>
-        <button id="auto">Constructeurs automobiles</button>
-    </div>
-
-    <div class="grid-container" id="reco">
-        <p>Choissisez une catégorie</p>
-    </div>
-
-    <script src="js/app.js" type="module"></script>
-
+        <div id="cate">
+            <button id="animaux">Animaux</button>
+            <button id="auto">Constructeurs automobiles</button>
+        </div>
+        <div id="reco">
+            
+        </div>
+        <script src="js/app.js" type="module"></script>
 </body>
 </html>
