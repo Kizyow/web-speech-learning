@@ -3,6 +3,21 @@ import {getImagesVoitures, getImagesAnimaux} from "./images.js";
 
 console.log("loading app.js");
 
+
+const  loadImages = (category) => {
+  let divImages = document.getElementById('reco');
+  divImages.innerHTML = "";
+  const shuffledImages = category.sort((a, b) => 0.5 - Math.random());
+  shuffledImages.forEach(image => {
+      image.classList.add("grid-item");
+      divImages.appendChild(image);
+
+      image.addEventListener("click", function (e) {
+          speak(image.alt);
+      });
+  });
+}
+
 // first check if the browser supports the speechSynthesis API
 if ("speechSynthesis" in window) {
   console.log("speechSynthesis supported");
