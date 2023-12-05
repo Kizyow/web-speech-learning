@@ -3,48 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>Web Speech Learning</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li>Deioos</li>
-            <li>Kizyow</li>
-        </ul>
-    </nav>
-    <p id="isSupported"> Speech Syntesis </p>
-    <h1>Web Speech Learning</h1>
-    <div id="test-img"></div>
-    <div class="option">
-        <label for="voice">Voice</label>
-        <select name="voice" id="voice"></select>
-        </div>
-        <div class="option">
-        <label for="volume">Volume</label>
-        <input type="range" min="0" max="1" step="0.1" name="volume" id="volume" value="1">
-        </div>
-        <div class="option">
-        <label for="rate">Rate</label>
-        <input type="range" min="0.1" max="10" step="0.1" name="rate" id="rate" value="1">
-        </div>
-        <div class="option">
-        <label for="pitch">Pitch</label>
-        <input type="range" min="0" max="2" step="0.1" name="pitch" id="pitch" value="1">
-        </div>
-        <div class="phrase">
-        <label for="phrase">Phrase</label>
-        <textarea name="phrase" id="phrase" cols="30" rows="1"></textarea>
-        </div>
-        <button id="speak">Speak</button>
-        <script src="js/app.js" type="module"></script>
+<nav>
+    <ul>
+        <li>Deioos</li>
+        <li>Kizyow</li>
+    </ul>
+</nav>
+<p id="isSupported"> Speech Syntesis </p>
+<h1>Web Speech Learning</h1>
 
-        
-        <h1> Reconnaissance </h1>
-        <div id="cate">
-            <button id="animaux">Animaux</button>
-            <button id="auto">Constructeurs automobiles</button>
-        </div>
-        <div id="reco">
-            
-        </div>
+<div class="option">
+    <label for="voice">Voice</label>
+    <select name="voice" id="voice"></select>
+</div>
+<div class="option">
+    <label for="volume">Volume</label>
+    <input type="range" min="0" max="1" step="0.1" name="volume" id="volume" value="1">
+</div>
+<div class="option">
+    <label for="rate">Rate</label>
+    <input type="range" min="0.1" max="10" step="0.1" name="rate" id="rate" value="1">
+</div>
+<div class="option">
+    <label for="pitch">Pitch</label>
+    <input type="range" min="0" max="2" step="0.1" name="pitch" id="pitch" value="1">
+</div>
+<div class="phrase">
+    <label for="phrase">Phrase</label>
+    <textarea name="phrase" id="phrase" cols="30" rows="1"></textarea>
+</div>
+<button id="speak">Speak</button>
+<script src="js/app.js" type="module"></script>
+
+
+<h1> Reconnaissance </h1>
+<div id="cate">
+    <button id="animaux">Animaux</button>
+    <button id="auto">Constructeurs automobiles</button>
+</div>
+<div class="grid-container" id="reco">
+</div>
 </body>
 </html>

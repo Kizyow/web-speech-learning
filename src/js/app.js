@@ -3,6 +3,8 @@ import {getImagesVoitures, getImagesAnimaux} from "./images.js";
 
 console.log("loading app.js");
 
+
+
 // first check if the browser supports the speechSynthesis API
 if ("speechSynthesis" in window) {
   console.log("speechSynthesis supported");
@@ -14,6 +16,7 @@ if ("speechSynthesis" in window) {
   let divImages =  document.getElementById('reco');
   let images = getImagesVoitures();
   images.forEach(image => {
+    image.classList.add("grid-item");
     divImages.appendChild(image);
 
     image.addEventListener("click", function (e) {
