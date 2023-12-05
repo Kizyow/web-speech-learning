@@ -2,6 +2,8 @@ export const getImage = (categorie, name) => {
     const img = new Image();
     img.src = `../images/${categorie}/${name}.png`;
     img.alt = `${name}`;
+    img.width = 150;
+    img.height = 150;
     return img;
 }
 

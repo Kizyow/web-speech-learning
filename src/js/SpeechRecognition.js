@@ -1,60 +1,39 @@
-export function speak(text) {
-  var msg = new SpeechSynthesisUtterance();
-  var voiceSelect = document.getElementById("voice");
-  // Get the attribute controls.
-  var volumeInput = document.getElementById("volume");
-  var rateInput = document.getElementById("rate");
-  var pitchInput = document.getElementById("pitch");
+export const speak = (text) => {
+    const msg = new SpeechSynthesisUtterance();
+    const voiceSelect = document.getElementById("voice");
 
+    msg.text = text;
+    msg.volume = 1.0;
+    msg.rate = 1.0;
+    msg.pitch = 1.0;
 
-  msg.text = text;
-  // Set les attributs
-  msg.volume = parseFloat(volumeInput.value);
-  msg.rate = parseFloat(rateInput.value);
-  msg.pitch = parseFloat(pitchInput.value);
-  // Si une voix a été sélectionnée, faire les modifications nécessaires.
-  if (voiceSelect.value) {
-    msg.voice = speechSynthesis.getVoices().filter(function (voice) {
-      return voice.name == voiceSelect.value;
-    })[0];
-  }
-  // Ajouter ce texte (parole) à la liste de synthèse.
-  window.speechSynthesis.speak(msg);
-  console.log("speak: " + text);
+    if (voiceSelect.value) {
+        msg.voice = speechSynthesis.getVoices().filter(function (voice) {
+            return voice.name === voiceSelect.value;
+        })[0];
+    }
+
+    window.speechSynthesis.speak(msg);
 }
 
-export function main()  {
-  var button = document.getElementById("speak");
-  var speechMsgInput = document.getElementById("phrase");
-  var voiceSelect = document.getElementById("voice");
-  // Get the attribute controls.
-  var volumeInput = document.getElementById("volume");
-  var rateInput = document.getElementById("rate");
-  var pitchInput = document.getElementById("pitch");
+export const loadVoices = () => {
+    const voiceSelector = document.getElementById("voice");
 
-  function loadVoices() {
-    console.log("loading voices");
-    var voices = window.speechSynthesis.getVoices();
-    // parcourir la liste des voix.
+    const voices = window.speechSynthesis.getVoices();
     voices.forEach(function (voice, i) {
-      console.log(voice.name);
-      var option = document.createElement("option");
-      option.value = voice.name;
-      option.innerHTML = voice.name;
-      // Add the option to the voice selector.
-      voiceSelect.appendChild(option);
+        const option = document.createElement("option");
+        option.value = voice.name;
+        option.innerHTML = voice.name;
+        voiceSelector.appendChild(option);
     });
-  }
+}
 
-  loadVoices();
+export function main() {
 
-  window.speechSynthesis.onvoiceschanged = function (e) {
     loadVoices();
-  };
 
-  button.addEventListener("click", function (e) {
-    console.log("firing event");
-    speak(speechMsgInput.value);
-  });
+    window.speechSynthesis.onvoiceschanged = function (e) {
+        loadVoices();
+    };
 
-};
+}
