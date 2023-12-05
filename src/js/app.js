@@ -1,7 +1,7 @@
-import {main, speak} from "./SpeechRecognition.js";
+import {currentLang, main, speak} from "./SpeechRecognition.js";
 import {getImagesVoitures, getImagesAnimaux} from "./images.js";
 
-const  loadImages = (category) => {
+const loadImages = (category) => {
     let divImages = document.getElementById('reco');
     divImages.innerHTML = "";
     const shuffledImages = category.sort((a, b) => 0.5 - Math.random());
@@ -23,6 +23,16 @@ if ("speechSynthesis" in window) {
 
     const buttonAnimaux = document.getElementById("animaux");
     const buttonAuto = document.getElementById("auto");
+    const voiceSelect = document.getElementById("voice");
+
+    voiceSelect.addEventListener("change", function (e) {
+        let divImages = document.getElementById('reco');
+        if (currentLang === "en-US" || currentLang === "en-GB") {
+            divImages.innerHTML = "Choose a category";
+        } else {
+            divImages.innerHTML = "Choississez une catégorie";
+        }
+    });
 
     buttonAnimaux.addEventListener("click", function (e) {
         loadImages(getImagesAnimaux());
