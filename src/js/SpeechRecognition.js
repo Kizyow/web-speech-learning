@@ -28,7 +28,7 @@ export const loadVoices = () => {
         if (voice.lang === "fr-FR" || voice.lang === "en-US" || voice.lang === "en-GB") {
             const option = document.createElement("option");
             option.value = voice.name;
-            option.innerHTML = voice.name + " " + voice.lang;
+            option.innerHTML = voice.name;
             voiceSelector.appendChild(option);
         }
     });

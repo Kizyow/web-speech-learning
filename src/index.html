@@ -14,13 +14,10 @@
       </ul>
     </nav>
 
-    <p id="isSupported">Speech Syntesis</p>
-
     <h1>Web Speech Learning</h1>
 
     <div class="options">
       <div class="option">
-        <label for="voice">Voice</label>
         <select name="voice" id="voice"></select>
       </div>
       <div class="option">
@@ -36,7 +33,7 @@
         />
       </div>
       <div class="option">
-        <label for="rate">Rate</label>
+        <label for="rate">Vitesse</label>
         <input
           type="range"
           min="0.1"
@@ -62,15 +59,15 @@
     </div>
 
     <div class="app">
-      <h1 id="currentMode">Learn</h1>
-      <button id="modeButton">switch mode</button>
-      <button id="play" hidden="true">play</button>
+      <button id="modeButton">Changer de mode de jeu</button>
+      <h1 id="currentMode">Apprendre le vocabulaire</h1>
 
       <div id="cate">
         <button id="animaux">Animaux</button>
         <button id="auto">Constructeurs automobiles</button>
       </div>
       <div id="reco"></div>
+      <button id="play" hidden="true">Lancer</button>
     </div>
 
     <script src="js/app.js" type="module"></script>

@@ -45,8 +45,6 @@ const targetCard = (images) => {
 
 // first check if the browser supports the speechSynthesis API
 if ("speechSynthesis" in window) {
-    document.getElementById("isSupported").innerHTML =
-        "speechSynthesis supported";
 
     main();
 
@@ -65,20 +63,23 @@ if ("speechSynthesis" in window) {
     });
 
     buttonAnimaux.addEventListener("click", function (e) {
+        buttonAnimaux.classList.add("selected");
+        buttonAuto.classList.remove("selected");
         loadImages(getImagesAnimaux());
     });
 
     buttonAuto.addEventListener("click", function (e) {
+        buttonAuto.classList.add("selected");
+        buttonAnimaux.classList.remove("selected");
         loadImages(getImagesVoitures());
     });
 
-    let modeStates = ["Learn", "Play"];
+    let modeStates = ["Apprendre le vocabulaire", "Jeu de reconnaissance"];
     let mode = document.getElementById("currentMode");
 
     let switchModeBtn = document.getElementById("modeButton");
     let playBtn = document.getElementById("play");
     switchModeBtn.addEventListener("click", function (e) {
-        console.log("switch mode");
         let images = document.getElementById("reco").children;
         // if there is no image, we generate animals images
         if (images.length === 0) {
@@ -121,6 +122,4 @@ if ("speechSynthesis" in window) {
     });
 } else {
     alert("speechSynthesis not supported, try another browser");
-    document.getElementById("isSupported").innerHTML =
-        "speechSynthesis not supported";
 }

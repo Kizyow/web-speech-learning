@@ -91,10 +91,51 @@ h1 {
     border-radius:  5px;
 }
 
+#cate button {
+    margin-left: 20px;
+    transition: .5s ease-out;
+}
+
+.app button:hover {
+    transform: scale(1.1);
+}
+
 .app img {
     margin-top: 20px;
 } 
 a {
     text-decoration: none;
     color: #333;
+}
+
+/* Style de base pour le select */
+select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    appearance: none;
+    background-color: #fff;
+    width: auto;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+select:hover {
+    border-color: #666;
+}
+
+select:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+select option {
+    padding: 10px;
+}
+
+.app .selected {
+    background-color: #e3b651;
 }
