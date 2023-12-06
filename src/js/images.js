@@ -61,3 +61,30 @@ export const getImagesAnimaux = () => {
     }
 
 }
+
+export const getImagesComposants = () => {
+    if (currentLang === "en-US" || currentLang === "en-GB") {
+        return [
+            getImage("composants", "cpu", "central processing unit"),
+            getImage("composants", "gpu", "graphics card"),
+            getImage("composants", "case", "case"),
+            getImage("composants", "hdd", "hard disk"),
+            getImage("composants", "mobo", "motherboard"),
+            getImage("composants", "psu", "power supply"),
+            getImage("composants", "ram", "RAM"),
+            getImage("composants", "ssd", "ssd"),
+        ]
+    } else {
+        return [
+            getImage("composants", "cpu", "processeur"),
+            getImage("composants", "gpu", "carte graphique"),
+            getImage("composants", "case", "boitier"),
+            getImage("composants", "hdd", "disque dur"),
+            getImage("composants", "mobo", "carte mere"),
+            getImage("composants", "psu", "alimentation"),
+            getImage("composants", "ram", "RAM"),
+            getImage("composants", "ssd", "ssd"),
+        ]
+    }
+
+}
