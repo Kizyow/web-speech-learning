@@ -5,11 +5,29 @@
     max-width: 300px;
 }
 
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .grid-item {
     position: relative;
     overflow: hidden;
     border: 2px solid #000;
     box-sizing: border-box;
+    animation: fadeInOut 1s ease forwards;
+}
+
+.fail {
+    border: 2px solid red;
+}
+
+.success {
+    border: 2px solid lime;
 }
 
 .grid-item img {
@@ -18,10 +36,16 @@
     display: block;
 }
 
+.grid-item:hover {
+    transform: scale(1.1);
+}
+
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background: #f5f5f5;
 }
 
 nav {
@@ -40,10 +64,6 @@ nav ul li {
     display: inline;
     margin: 0 20px;
     cursor: pointer;
-}
-
-h1 {
-    text-align: center;
 }
 
 .option {
@@ -81,20 +101,108 @@ h1 {
 }
 
 .app button {
-    font-size: larger ;
+    font-size: larger;
     padding: 10px 20px;
     margin-top: 20px;
     border: none;
     background-color: #333;
     color: white;
     cursor: pointer;
-    border-radius:  5px;
+    border-radius: 5px;
+    transition: .5s ease-out;
+
+}
+
+#cate button {
+    margin-left: 20px;
+}
+
+.app button:hover {
+    transform: scale(1.1);
 }
 
 .app img {
     margin-top: 20px;
-} 
+}
+
 a {
     text-decoration: none;
     color: #333;
+}
+
+/* Style de base pour le select */
+select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    appearance: none;
+    background-color: #fff;
+    width: auto;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+select:hover {
+    border-color: #666;
+}
+
+select:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+select option {
+    padding: 10px;
+}
+
+.app .selected {
+    background-color: #e3b651;
+}
+
+@keyframes floatTitle {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    text-align: center;
+}
+
+.title {
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 50px;
+    animation: floatTitle 2s ease-in-out infinite;
+}
+
+/* Animation */
+@keyframes buttonAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.app .button-clicked {
+    animation: buttonAnimation 0.5s ease;
+}
+
+.app .button-green {
+    background-color: #4fae4f;
 }
