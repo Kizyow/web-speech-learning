@@ -206,3 +206,16 @@ h1 {
 .app .button-green {
     background-color: #4fae4f;
 }
+
+li a {
+    color: white;
+    text-decoration: none;
+}
+
+.green-color {
+    color: #4fae4f;
+}
+
+.red-color {
+    color: #c95b48;
+}

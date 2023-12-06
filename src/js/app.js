@@ -5,6 +5,12 @@ const s = (e) => {
     speak(e.target.alt);
 };
 
+let currentWord = "";
+
+const replayWord = () => {
+    speak(currentWord);
+}
+
 const loadImages = (category) => {
     let currentMode = document.getElementById("currentMode").innerHTML;
 
@@ -22,6 +28,7 @@ const loadImages = (category) => {
 const targetCard = (images) => {
     let randomImage = images[Math.floor(Math.random() * images.length)];
 
+    currentWord = randomImage.alt;
     speak(randomImage.alt);
 
     // regard si le prochain click est sur la bonne carte puis on enlève l'event listener
@@ -106,6 +113,7 @@ if ("speechSynthesis" in window) {
 
     let switchModeBtn = document.getElementById("modeButton");
     let playBtn = document.getElementById("play");
+    let replayBtn = document.getElementById("replay");
     switchModeBtn.addEventListener("click", function (e) {
         let images = document.getElementById("reco").children;
 
@@ -117,13 +125,19 @@ if ("speechSynthesis" in window) {
 
         if (mode.innerHTML === modeStates[0]) {
             mode.innerHTML = modeStates[1];
+            mode.classList.add("red-color");
+            mode.classList.remove("green-color");
             playBtn.removeAttribute("hidden");
+            replayBtn.removeAttribute("hidden");
             for (let image of images) {
                 image.removeEventListener("click", s);
             }
         } else {
             mode.innerHTML = modeStates[0];
+            mode.classList.remove("red-color");
+            mode.classList.add("green-color");
             playBtn.setAttribute("hidden", true);
+            replayBtn.setAttribute("hidden", true);
             for (let image of images) {
                 image.addEventListener("click", s);
             }
@@ -149,6 +163,8 @@ if ("speechSynthesis" in window) {
             targetCard(images);
         }
     });
+
+    replayBtn.addEventListener("click", replayWord);
 } else {
     alert("speechSynthesis not supported, try another browser");
 }
