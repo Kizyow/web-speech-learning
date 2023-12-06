@@ -25,7 +25,7 @@ export const loadVoices = () => {
 
     const voices = window.speechSynthesis.getVoices();
     voices.forEach(function (voice, i) {
-        if (voice.lang === "fr-FR" || voice.lang === "en-US" || voice.lang === "en-GB") {
+        if (voice.lang === "fr-FR" || voice.lang === "en-US" || voice.lang === "en-GB" || voice.lang === "es-ES") {
             const option = document.createElement("option");
             option.value = voice.name;
             option.innerHTML = voice.name;

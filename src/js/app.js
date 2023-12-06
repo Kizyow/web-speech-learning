@@ -27,7 +27,12 @@ const targetCard = (images) => {
     // regard si le prochain click est sur la bonne carte puis on enlève l'event listener
     let clickListener = function (e) {
         if (e.target === randomImage) {
-            let congrats = currentLang === "fr-FR" ? "Bravo" : "Congrats";
+            let congrats = "Bravo"
+            if (currentLang === "es-ES") {
+                congrats = "¡Bravo!";
+            } else if (currentLang === "en-US" || currentLang === "en-GB") {
+                congrats = "Congrats!";
+            }
             speak(congrats);
             e.target.classList.add("success")
             for (let image of images) {
@@ -37,7 +42,12 @@ const targetCard = (images) => {
                 }, 1000);
             }
         } else {
-            let tryagain = currentLang === "fr-FR" ? "Essaie encore" : "Try again";
+            let tryagain = "Essaie encore";
+            if (currentLang === "es-ES") {
+                tryagain = "Inténtalo de nuevo";
+            } else if (currentLang === "en-US" || currentLang === "en-GB") {
+                tryagain = "Try again";
+            }
             e.target.classList.add("fail")
             speak(tryagain);
         }
@@ -63,6 +73,8 @@ if ("speechSynthesis" in window) {
         let divImages = document.getElementById('reco');
         if (currentLang === "en-US" || currentLang === "en-GB") {
             divImages.innerHTML = "Choose a category";
+        } else if (currentLang === "es-ES") {
+            divImages.innerHTML = "Elige una categoría";
         } else {
             divImages.innerHTML = "Choississez une catégorie";
         }
